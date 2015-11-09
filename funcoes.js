@@ -3,6 +3,7 @@ var caiu = false
 
 var text = ""
 var funcoes = ""
+var funcClass = ""
 
 function differ_aux(f,s){
   var two = moment(s)
@@ -29,10 +30,13 @@ function differ(fyr,fm,fd,fh,fmn,fs,syr,sm,sd,sh,smn,ss) {
   return differ_aux(fyr+"-"+fm+"-"+fd+"T"+fh+":"+fmn+":"+fs+"Z", syr+"-"+sm+"-"+sd+"T"+sh+":"+smn+":"+ss+"Z")
 }
 
-if(caiu)
+if(caiu) {
   funcoes = "SIM"
-else
+  funcClass = "funcoes sim"
+} else {
   funcoes = "N&Atilde;O"
+  funcClass = "funcoes nao"
+}
 
 setInterval(function(){
   if(emFuncoes)
@@ -43,6 +47,8 @@ setInterval(function(){
     else
       text = "O governo ainda n&atilde;o est&aacute; em fun&ccedil;&otilde;es."
 
-  document.getElementById("funcoes").innerHTML = funcoes
+  var funcoesElem = document.getElementById("funcoes")
+  funcoesElem.innerHTML = funcoes
+  funcoesElem.className = funcClass
   document.getElementById("timer").innerHTML = text
 }, 1000)
