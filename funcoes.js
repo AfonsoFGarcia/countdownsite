@@ -1,4 +1,4 @@
-var emFuncoes = true
+var emFuncoes = false
 var caiu = false
 
 var text = ""
