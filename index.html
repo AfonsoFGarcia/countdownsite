@@ -22,17 +22,16 @@
         var paststring=montharray[m-1]+" "+d+", "+yr
         var difference=(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(24*60*60*1000))*1)
         difference+=" days"
-        document.write("It\'s been "+difference+" since the launch of JavaScript Kit!")
+        document.getElementById("timer").innerHTML = "It\'s been "+difference+" since the launch of JavaScript Kit!"
       }
+      setInterval(function(){
+        countup(2015,11,09);
+      }, 1000);
     </script>
     <meta charset="utf-8">
     <title>O Governo PS j&aacute; caiu?</title>
   </head>
   <body>
-    <script>
-      setInterval(function(){
-        countup(2015,11,09);
-      }, 1000);
-    </script>
+    <div id="timer"></div>
   </body>
 </html>
