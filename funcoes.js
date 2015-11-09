@@ -12,12 +12,12 @@ function differ_aux(f,s){
   var diff = moment(two.diff(one))
   var difference = [diff.year()-1970, diff.month(), diff.date()-1, diff.hour(), diff.minute(), diff.second()]
 
-  var text = difference[0] + " anos, "
-  text += difference[1] + " meses, "
-  text += difference[2] + " dias, "
-  text += difference[3] + " horas, "
-  text += difference[4] + " minutos e "
-  text += difference[5] + " segundos."
+  var text = difference[0] + " "+(difference[0] == 1? "ano" : "anos")+", "
+  text += difference[1] + " "+(difference[1] == 1? "m&ecirc;s" : "meses")+", "
+  text += difference[2] + " "+(difference[2] == 1? "dia" : "dias")+", "
+  text += difference[3] + " "+(difference[3] == 1? "hora" : "horas")+", "
+  text += difference[4] + " "+(difference[4] == 1? "minuto" : "minutos")+" e "
+  text += difference[5] + " "+(difference[5] == 1? "segundo" : "segundos")+"."
 
   return text
 }
