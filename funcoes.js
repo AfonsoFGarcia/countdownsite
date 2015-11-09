@@ -45,7 +45,7 @@ setInterval(function(){
     if(caiu)
       text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","09","11","30","00","2015","12","25","00","00","00")
     else
-      text = "O governo ainda n&atilde;o est&aacute; em fun&ccedil;&otilde;es."
+      text = "E Pedro Passos Coelho ainda &eacute; primeiro-ministro."
 
   var funcoesElem = document.getElementById("funcoes")
   funcoesElem.innerHTML = funcoes
