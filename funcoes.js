@@ -59,4 +59,5 @@ function setFuncoes() {
 }
 
 setFuncoes()
-setInterval(setText, 1000)
+if(emFuncoes)
+  setInterval(setText, 1000)
