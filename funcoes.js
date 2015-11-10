@@ -30,15 +30,7 @@ function differ(fyr,fm,fd,fh,fmn,fs,syr,sm,sd,sh,smn,ss) {
   return differ_aux(fyr+"-"+fm+"-"+fd+"T"+fh+":"+fmn+":"+fs+"Z", syr+"-"+sm+"-"+sd+"T"+sh+":"+smn+":"+ss+"Z")
 }
 
-if(caiu) {
-  funcoes = "SIM"
-  funcClass = "funcoes sim"
-} else {
-  funcoes = "N&Atilde;O"
-  funcClass = "funcoes nao"
-}
-
-setInterval(function(){
+function setText(){
   if(emFuncoes)
     text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","09","11","30","00")
   else
@@ -47,8 +39,24 @@ setInterval(function(){
     else
       text = "E Pedro Passos Coelho j&aacute; s&oacute; est&aacute; em gest&atilde;o."
 
+  document.getElementById("timer").innerHTML = text
+}
+
+function setFuncoes() { 
+  if(caiu) {
+    funcoes = "SIM"
+    funcClass = "funcoes sim"
+  } else {
+    funcoes = "N&Atilde;O"
+    funcClass = "funcoes nao"
+  }
+  
   var funcoesElem = document.getElementById("funcoes")
   funcoesElem.innerHTML = funcoes
   funcoesElem.className = funcClass
-  document.getElementById("timer").innerHTML = text
-}, 1000)
+  
+  setText()
+}
+
+setFuncoes()
+setInterval(setText, 1000)
