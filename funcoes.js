@@ -12,11 +12,32 @@ function differ_aux(f,s){
   var diff = moment(two.diff(one))
   var difference = [diff.year()-1970, diff.month(), diff.date()-1, diff.hour(), diff.minute(), diff.second()]
 
-  var text = difference[0] + " "+(difference[0] == 1? "ano" : "anos")+", "
-  text += difference[1] + " "+(difference[1] == 1? "m&ecirc;s" : "meses")+", "
-  text += difference[2] + " "+(difference[2] == 1? "dia" : "dias")+", "
-  text += difference[3] + " "+(difference[3] == 1? "hora" : "horas")+", "
-  text += difference[4] + " "+(difference[4] == 1? "minuto" : "minutos")+" e "
+  var text = ""
+  
+  if (difference[0] != 0)
+    text += difference[0] + " "+(difference[0] == 1? "ano" : "anos")
+  if (difference[1] != 0) {
+    if(text != "")
+      text += ", "
+    text += difference[1] + " "+(difference[1] == 1? "m&ecirc;s" : "meses")
+  }
+  if (difference[2] != 0) {
+    if(text != "")
+      text += ", "
+    text += difference[2] + " "+(difference[2] == 1? "dia" : "dias")
+  }
+  if (difference[3] != 0) {
+    if(text != "")
+      text += ", "
+    text += difference[3] + " "+(difference[3] == 1? "hora" : "horas")
+  }
+  if (difference[4] != 0) {
+    if(text != "")
+      text += ", "
+    text += difference[4] + " "+(difference[4] == 1? "minuto" : "minutos")
+  }
+  if (text != "")
+    text += " e "
   text += difference[5] + " "+(difference[5] == 1? "segundo" : "segundos")+"."
 
   return text
