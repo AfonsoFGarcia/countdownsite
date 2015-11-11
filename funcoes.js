@@ -37,7 +37,7 @@ function setText(){
     if(caiu)
       text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","09","11","30","00","2015","12","25","00","00","00")
     else
-      text = "E Pedro Passos Coelho j&aacute; s&oacute; est&aacute; em gest&atilde;o."
+      text = "E Pedro Passos Coelho est&aacute; em gest&atilde;o h&aacute; " + countup("2015", "11", "10", "17", "16", "00")
 
   document.getElementById("timer").innerHTML = text
 }
@@ -59,5 +59,5 @@ function setFuncoes() {
 }
 
 setFuncoes()
-if(emFuncoes)
+if(emFuncoes || !emFuncoes && !caiu)
   setInterval(setText, 1000)
