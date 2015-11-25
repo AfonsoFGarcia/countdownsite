@@ -1,4 +1,4 @@
-var emFuncoes = moment().isAfter(parse("2015","11","26","14","00","00"))
+var emFuncoes = moment().isAfter(parse("2015","11","26","16","00","00"))
 var caiu = false
 
 var text = ""
@@ -61,12 +61,12 @@ function differ(fyr,fm,fd,fh,fmn,fs,syr,sm,sd,sh,smn,ss) {
 
 function setText(){
   if(emFuncoes)
-    text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","26","14","00","00") + "."
+    text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","26","16","00","00") + "."
   else
     if(caiu)
-      text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","26","14","00","00","2015","12","25","00","00","00") + "."
+      text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","26","16","00","00","2015","12","25","00","00","00") + "."
     else
-      text = "J&aacute; s&oacute; faltam " + countdown("2015", "11", "26", "14", "00", "00") + " para a tomada de posse."
+      text = "J&aacute; s&oacute; faltam " + countdown("2015", "11", "26", "16", "00", "00") + " para a tomada de posse."
 
   document.getElementById("timer").innerHTML = text
 }
