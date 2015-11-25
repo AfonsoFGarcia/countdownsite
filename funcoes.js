@@ -1,9 +1,13 @@
-var emFuncoes = false
+var emFuncoes = moment().isAfter(parse("2015","11","26","14","00","00"))
 var caiu = false
 
 var text = ""
 var funcoes = ""
 var funcClass = ""
+
+function parse(yr,m,d,h,mn,s){
+  return yr+"-"+m+"-"+d+"T"+h+":"+mn+":"+s+"Z"
+}
 
 function differ_aux(f,s){
   var two = moment(s)
@@ -44,15 +48,15 @@ function differ_aux(f,s){
 }
 
 function countup(yr,m,d,h,mn,s){
-  return differ_aux(yr+"-"+m+"-"+d+"T"+h+":"+mn+":"+s+"Z", moment().format())
+  return differ_aux(parse(yr,m,d,h,mn,s), moment().format())
 }
 
 function countdown(yr,m,d,h,mn,s){
-  return differ_aux(moment().format(), yr+"-"+m+"-"+d+"T"+h+":"+mn+":"+s+"Z")
+  return differ_aux(moment().format(), parse(yr,m,d,h,mn,s))
 }
 
 function differ(fyr,fm,fd,fh,fmn,fs,syr,sm,sd,sh,smn,ss) {
-  return differ_aux(fyr+"-"+fm+"-"+fd+"T"+fh+":"+fmn+":"+fs+"Z", syr+"-"+sm+"-"+sd+"T"+sh+":"+smn+":"+ss+"Z")
+  return differ_aux(parse(fyr,fm,fd,fh,fmn,fs), parse(syr,sm,sd,sh,smn,ss))
 }
 
 function setText(){
@@ -86,3 +90,26 @@ function setFuncoes() {
 setFuncoes()
 if(emFuncoes || !emFuncoes && !caiu)
   setInterval(setText, 1000)
+
+var tag = document.createElement('script');
+			
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '10',
+    width: '10',
+    videoId: 'vMgp904a3nc',
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  if(caiu)
+    event.target.playVideo();
+}

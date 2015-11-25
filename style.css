@@ -30,3 +30,11 @@ body {
 .twitter-share-button {
   margin-top: 10px;
 }
+.element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  margin: 0 auto;
+  visibility: hidden;
+}
