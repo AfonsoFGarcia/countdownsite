@@ -38,7 +38,7 @@ function differ_aux(f,s){
   }
   if (text != "")
     text += " e "
-  text += difference[5] + " "+(difference[5] == 1? "segundo" : "segundos")+"."
+  text += difference[5] + " "+(difference[5] == 1? "segundo" : "segundos")
 
   return text
 }
@@ -47,18 +47,22 @@ function countup(yr,m,d,h,mn,s){
   return differ_aux(yr+"-"+m+"-"+d+"T"+h+":"+mn+":"+s+"Z", moment().format())
 }
 
+function countdown(yr,m,d,h,mn,s){
+  return differ_aux(moment().format(), yr+"-"+m+"-"+d+"T"+h+":"+mn+":"+s+"Z")
+}
+
 function differ(fyr,fm,fd,fh,fmn,fs,syr,sm,sd,sh,smn,ss) {
   return differ_aux(fyr+"-"+fm+"-"+fd+"T"+fh+":"+fmn+":"+fs+"Z", syr+"-"+sm+"-"+sd+"T"+sh+":"+smn+":"+ss+"Z")
 }
 
 function setText(){
   if(emFuncoes)
-    text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","09","11","30","00")
+    text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","26","14","00","00") + "."
   else
     if(caiu)
-      text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","09","11","30","00","2015","12","25","00","00","00")
+      text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","26","14","00","00","2015","12","25","00","00","00") + "."
     else
-      text = "E Ant&oacute;nio Costa foi indigitado h&aacute; " + countup("2015", "11", "24", "12", "12", "00")
+      text = "J&aacute; s&oacute; faltam " + countdown("2015", "11", "26", "14", "00", "00") + " para a tomada de posse."
 
   document.getElementById("timer").innerHTML = text
 }
