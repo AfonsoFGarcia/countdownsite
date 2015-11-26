@@ -1,4 +1,4 @@
-var emFuncoes = moment().isAfter(parse("2015","11","26","16","00","00"))
+var emFuncoes = false
 var caiu = false
 
 var text = ""
