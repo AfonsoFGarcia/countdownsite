@@ -1,4 +1,4 @@
-var emFuncoes = false
+var emFuncoes = true
 var caiu = false
 
 var text = ""
@@ -61,10 +61,10 @@ function differ(fyr,fm,fd,fh,fmn,fs,syr,sm,sd,sh,smn,ss) {
 
 function setText(){
   if(emFuncoes)
-    text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","26","16","00","00") + "."
+    text = "O governo est&aacute; em fun&ccedil;&otilde;es h&aacute; " + countup("2015","11","26","16","45","35") + "."
   else
     if(caiu)
-      text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","26","16","00","00","2015","12","25","00","00","00") + "."
+      text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","26","16","45","35","2015","12","25","00","00","00") + "."
     else
       text = "Est&aacute; agora a tomar posse."
 
@@ -88,7 +88,7 @@ function setFuncoes() {
 }
 
 setFuncoes()
-if(emFuncoes || !emFuncoes && !caiu)
+if(emFuncoes)
   setInterval(setText, 1000)
 
 var tag = document.createElement('script');
