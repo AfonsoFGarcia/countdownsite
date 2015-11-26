@@ -66,7 +66,7 @@ function setText(){
     if(caiu)
       text = "O governo esteve em fun&ccedil;&otilde;es durante " + differ("2015","11","26","16","00","00","2015","12","25","00","00","00") + "."
     else
-      text = "J&aacute; s&oacute; faltam " + countdown("2015", "11", "26", "16", "00", "00") + " para a tomada de posse."
+      text = "Est&aacute; agora a tomar posse."
 
   document.getElementById("timer").innerHTML = text
 }
